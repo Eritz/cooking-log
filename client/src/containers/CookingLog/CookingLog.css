@@ -1,0 +1,36 @@
+.CookingLog-Container {
+
+}
+
+.Date {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Date-DatePicker{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.Meal-Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+
+
+/* Mobile will put everything under */
+@media (max-width: 700px) {
+    .Meal-Container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-between;
+    }
+}

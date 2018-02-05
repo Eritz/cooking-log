@@ -1,0 +1,31 @@
+/* This groups all the Elements: title, save, add buttons */
+.Title-Container {
+    margin-bottom: 20px;
+}
+
+/* Keep the Save, Input, and Button in one line */
+.Title-Container-Options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.BreakfastTitle,
+.LunchTitle,
+.DinnerTitle,
+.SnackTitle {
+    font-style: italic;
+}
+
+.BreakfastTitle {
+    color: purple;
+}
+
+/* For mobile */
+@media (max-width: 700px) {
+    .Title-Container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
