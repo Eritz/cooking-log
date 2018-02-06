@@ -2,57 +2,57 @@ import * as actionTypes from '../actions/actions';
 import axios from 'axios';
 
 const initialState = {
-    breakfastList: [],
+    dinnerList: [],
 }
 
 const reducer = (state=initialState, action) => {
     switch(action.type) {
         
-        // Add to the Breakfast list
-        case actionTypes.ADD_BREAKFAST:
-            let newBreakfastList = [...state.breakfastList];
+        // Add to the Dinner list
+        case actionTypes.ADD_DINNER:
+            let newDinnerList = [...state.dinnerList];
             // If it isn't empty space then add to the list
             if (!action.value.match(/^\s*$/)) {
-                newBreakfastList = newBreakfastList.concat(action.value);
+                newDinnerList = newDinnerList.concat(action.value);
             }
             return {
                 ...state,
-                breakfastList: newBreakfastList,
-            }
-        
-        // When entry is clicked, delete it from the Breakfast list
-        case actionTypes.DEL_BREAKFAST:
-            const remBreakfastList = [...state.breakfastList];
-            remBreakfastList.splice(action.value, 1);
-            console.log(remBreakfastList);
-            return {
-                ...state,
-                breakfastList: remBreakfastList,
+                dinnerList: newDinnerList,
             }
         
-        // Set breakfastList from database
-        case actionTypes.GET_BREAKFAST:
-            const dbBreakfastList = action.value;
+        // When entry is clicked, delete it from the Dinner list
+        case actionTypes.DEL_DINNER:
+            const remDinnerList = [...state.dinnerList];
+            remDinnerList.splice(action.value, 1);
+            console.log(remDinnerList);
             return {
                 ...state,
-                breakfastList: dbBreakfastList,
+                dinnerList: remDinnerList,
+            }
+        
+        // Set dinnerList from database
+        case actionTypes.GET_DINNER:
+            const dbDinnerList = action.value;
+            return {
+                ...state,
+                dinnerList: dbDinnerList,
             }
 
-        // Set breakfastList as empty because there is nothing in the database
-        case actionTypes.GET_BREAKFAST_EMPTY:
+        // Set dinnerList as empty because there is nothing in the database
+        case actionTypes.GET_DINNER_EMPTY:
             const emptyArray = action.value;
             return {
                 ...state,
-                breakfastList: emptyArray,
+                dinnerList: emptyArray,
             }
         
         // When save button is clicked, save to the database
         // action.value is the currentDate set
-        case actionTypes.SAVE_BREAKFAST:
+        case actionTypes.SAVE_DINNER:
             // Handle if there is a date set
             if (action.value !== null) {             
                 const dateToSave = action.value.format();
-                axios.post("http://localhost:7000/dates/"+dateToSave+"/breakfast", {meal: state.breakfastList})
+                axios.post("http://localhost:7000/dates/"+dateToSave+"/dinner", {meal: state.dinnerList})
                     .then(response => console.log(response.status)) 
                     .catch(error => console.log(error))
             }

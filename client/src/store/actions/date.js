@@ -3,13 +3,11 @@ import * as actionTypes from './actions';
 
 // Use these in the dispatch
 import {getBreakfastDB} from './breakfast.js';
+import {getLunchDB} from './lunch.js';
+import { getDinnerDB } from './dinner';
+import { getSnackDB } from './snack';
 
-export const getChosenDate = () => {
-    return {
-        type: actionTypes.GET_DATE,
-    }
-}
-
+// Change Date on the Screen
 export const changeDate = (date) => {
     return {
         type: actionTypes.CHANGE_DATE,
@@ -17,11 +15,13 @@ export const changeDate = (date) => {
     }
 }
 
-// Will not work yet
-
+// Change Date and access the server
 export const changeDateState = (date) => {
     return (dispatch) => {
-        dispatch(changeDate(date)) // can't chain dispatch then b/c not a call
+        dispatch(changeDate(date))
         dispatch(getBreakfastDB(date))
+        dispatch(getLunchDB(date))
+        dispatch(getDinnerDB(date))
+        dispatch(getSnackDB(date))
     }
 }

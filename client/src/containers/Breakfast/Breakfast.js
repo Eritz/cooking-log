@@ -30,12 +30,12 @@ class Breakfast extends Component {
         }
     }
 
-
     render() {
         
         const BreakfastMealEntry = this.props.dateBreakfastList.map((ele,idx) => {
             return(
-                <MealEntry 
+                <MealEntry
+                    key={idx} 
                     value={ele} 
                     deleteEntry={() => this.props.delFromBreakfastList(idx)}
                 />
