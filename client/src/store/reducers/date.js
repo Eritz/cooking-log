@@ -5,24 +5,18 @@ const initialState = {
 }
 
 const reducer = (state=initialState, action) => {
-    switch (action.type) {
+    if (action.type === actionTypes.CHANGE_DATE) {
+        let newCurrentDate = action.value;
+        return {
+            ...state,
+            chosenDate: newCurrentDate,
+        }
+    } else {
+        return {
+            ...state,
+        }
+    }        
 
-        // Get the current chosenTime
-        case actionTypes.GET_DATE:
-            return {
-                ...state,
-            }
-        
-        case actionTypes.CHANGE_DATE:
-            let newCurrentDate = action.value;
-            return {
-                ...state,
-                chosenDate: newCurrentDate,
-            }
-        default:
-            return state;
-
-    }
 }
 
 export default reducer;

@@ -33,6 +33,7 @@ class Breakfast extends Component {
     render() {
         
         const BreakfastMealEntry = this.props.dateBreakfastList.map((ele,idx) => {
+            // Using idx because there's no need to complicate the array
             return(
                 <MealEntry
                     key={idx} 
