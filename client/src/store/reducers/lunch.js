@@ -24,7 +24,6 @@ const reducer = (state=initialState, action) => {
         case actionTypes.DEL_LUNCH:
             const remLunchList = [...state.lunchList];
             remLunchList.splice(action.value, 1);
-            console.log(remLunchList);
             return {
                 ...state,
                 lunchList: remLunchList,

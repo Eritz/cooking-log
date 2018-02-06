@@ -1,18 +1,25 @@
-.CookingLog-Container {
 
-}
 
 .Date {
     position: fixed;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%);
 }
 
 .Date-DatePicker{
+    border: none;
+    outline: none;
+    padding: 5px;
     text-align: center;
     font-weight: bold;
     font-style: italic;
+    font-size: medium;
+    /* background-color: rgb(99, 131, 235); */
+    background-color: rgb(20,20,20,0.2);
+    cursor: pointer;
+    box-shadow: 1 2px 3px rgba(0,0,0,0.02);
 }
+
 
 .Meal-Container {
     display: flex;
@@ -23,8 +30,6 @@
 }
 
 
-
-
 /* Mobile will put everything under */
 @media (max-width: 700px) {
     .Meal-Container {
@@ -32,5 +37,19 @@
         flex-direction: column;
         text-align: center;
         justify-content: space-between;
+    }
+
+    .Date {
+        transform: none;
+    }
+
+    .Date-DatePicker {
+        transform: translate(-50%, -60%);
+        border-style: dashed;
+        border-width: 1px;
+    }
+
+    .Date-Popper {
+        right: 9vh;
     }
 }

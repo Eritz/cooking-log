@@ -8,10 +8,11 @@ const mealTitleContainer = (props) => {
             <h2 className={props.mealTitle + "Title"}>{props.mealTitle}</h2>
             <div className="Title-Container-Options">
                 <button 
-                    id="SaveMealButton"
-                    onClick={props.saveToDB}>Save
+                    className="SaveMealButton"
+                    onClick={props.saveToDB}>
                 </button>
                 <input
+                    className="InputBox"
                     value={props.enteredText}
                     onKeyPress={props.handlePressEnter}
                     onChange={props.handleChange} 
@@ -19,8 +20,8 @@ const mealTitleContainer = (props) => {
                     type="text">
                 </input>
                 <button 
-                    id="AddLineButton"
-                    onClick={props.addToList}>+
+                    className="AddLineButton"
+                    onClick={props.addToList}>
                 </button>
             </div>
         </div>

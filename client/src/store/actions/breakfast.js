@@ -27,7 +27,6 @@ export const getBreakfast = (dbInfo) => {
 export const getBreakfastDB = (date) => {
     const dateVar = date.format();
     return (dispatch) => {
-        console.log("http://localhost:7000/dates/"+dateVar+"/breakfast")
         axios.get("http://localhost:7000/dates/"+dateVar+"/breakfast")
         .then(response => {
             dispatch(getBreakfast(response.data.breakfastChosen.meal))

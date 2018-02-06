@@ -24,6 +24,7 @@ class CookingLog extends Component {
                         onChange={(date) => this.props.changeCurrentDate(date)}
                         placeholderText="Select a Date Here"
                         popperPlacement="right-start"
+                        popperClassName="Date-Popper"
                     />
                 </div>
                 <div className="Meal-Container">

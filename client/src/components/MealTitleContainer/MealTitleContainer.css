@@ -14,22 +14,104 @@
 .LunchTitle,
 .DinnerTitle,
 .SnackTitle {
+    font-weight: bolder;
     font-style: italic;
+    color: white;
 }
 
-.BreakfastTitle {
-    color: purple;
+
+/* Input box */
+.InputBox {
+    font-family: 'Helvetica', Arial, Lucida Grande, sans-serif;    
+    text-align: center;
+    color: #f5dbdb;
+    border: none;
+    outline: none;
+    background: rgba(20,20,20,0.3);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-#AddLineButton {
-    background: none;
+.InputBox::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #f5dbdb;
 }
+.InputBox:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #f5dbdb;
+    opacity:  1;
+}
+.InputBox::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #f5dbdb;
+    opacity:  1;
+}
+.InputBox:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f5dbdb;
+}
+.InputBox::-ms-input-placeholder { /* Microsoft Edge */
+    color: #f5dbdb;
+}
+
+.InputBox::placeholder { /* Most modern browsers support this now. */
+    color: #f5dbdb;
+}
+
+/* Save button and Add line button */
+.SaveMealButton,
+.AddLineButton {
+    border: none;
+    background:none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;   
+    width: 30px;
+    padding: 20px;
+    margin: 5px; 
+}
+
+.SaveMealButton {
+    background-image: url("../../img/save-button-red.png");
+}
+
+.SaveMealButton:active {
+    background-image: url("../../img/save-button.png");            
+}
+
+.AddLineButton {
+    background-image: url("../../img/add-button-red.png");
+}
+
+.AddLineButton:active { 
+    background-image: url("../../img/add-button.png");        
+}
+
 
 /* For mobile */
 @media (max-width: 700px) {
+
+    .BreakfastTitle,
+    .LunchTitle,
+    .DinnerTitle,
+    .SnackTitle {
+        font-style: italic;
+        color: rebeccapurple;
+    }
+
     .Title-Container {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
+    }
+
+    .Title-Container-Options {
+        justify-content: center;
+    }
+
+    .SaveMealButton {
+        background-image: url("../../img/save-button-red.png");        
+    }
+
+    .AddLineButton {
+        background-image: url("../../img/add-button-red.png");        
     }
 }
