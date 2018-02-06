@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actions';
+import axios from 'axios';
 
 const initialState = {
     breakfastList: ["tofu", "pancake"],
@@ -7,6 +8,7 @@ const initialState = {
 const reducer = (state=initialState, action) => {
     switch(action.type) {
         
+        // Add to the Breakfast list
         case actionTypes.ADD_BREAKFAST:
             let newBreakfastList = [...state.breakfastList];
             // If it isn't empty space then add to the list
@@ -18,6 +20,7 @@ const reducer = (state=initialState, action) => {
                 breakfastList: newBreakfastList,
             }
         
+        // When entry is clicked, delete it from the Breakfast list
         case actionTypes.DEL_BREAKFAST:
             const remBreakfastList = [...state.breakfastList];
             remBreakfastList.splice(action.value, 1);
@@ -27,11 +30,31 @@ const reducer = (state=initialState, action) => {
                 breakfastList: remBreakfastList,
             }
         
+        // Set breakfastList from database
+        case actionTypes.GET_BREAKFAST:
+            const dbBreakfastList = action.value;
+            return {
+                ...state,
+                breakfastList: dbBreakfastList,
+            }
+
+        // Set breakfastList as empty because there is nothing in the database
+        case actionTypes.GET_BREAKFAST_EMPTY:
+            const emptyArray = action.value;
+            return {
+                ...state,
+                breakfastList: emptyArray,
+            }
+        
+        // When save button is clicked, save to the database
+        // action.value is the currentDate set
         case actionTypes.SAVE_BREAKFAST:
-            // Need to access the date
-            // Make axios connection here to send to mlab
-            if (!action.value === null) {
-                console.log(action.value);
+            // Handle if there is a date set
+            if (action.value !== null) {             
+                const dateToSave = action.value.format();
+                axios.post("http://localhost:7000/dates/"+dateToSave+"/breakfast", {meal: state.breakfastList})
+                    .then(response => console.log(response.status)) 
+                    .catch(error => console.log(error))
             }
             return {
                 ...state,

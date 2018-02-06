@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getCurrentDate: () => dispatch(actionCreator.getChosenDate()),
-        changeCurrentDate: (date) => dispatch(actionCreator.changeDate(date))
+        changeCurrentDate: (date) => dispatch(actionCreator.changeDateState(date))
     }
 }
 

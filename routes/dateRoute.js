@@ -16,7 +16,7 @@ const router = express.Router();
 router.route("/")
 .get(function(req, res) {
     //res.send("Hello Main page");
-    res.json({message: "This should be the main page: localhost:3000/"})
+    res.json({message: "This should be the main page: localhost:7000/"})
 })
 
 /**

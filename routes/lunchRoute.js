@@ -21,9 +21,10 @@ router.route("/")
 })
 
 // POST - Find date, then add/update meals in the entry's .meal
+// the req.body.meal is an array, so we will use $set to update the old array with this one
 .post(function (req, res) {
     LunchModel.findOneAndUpdate({date: req.params.date},
-        {$push : {meal: req.body.meal}},{upsert:true},
+        {$set : {meal: req.body.meal}},{upsert:true},
         function(err) {
             if (err) {res.send(err)}
             res.json({message: "Finished updating lunch"})

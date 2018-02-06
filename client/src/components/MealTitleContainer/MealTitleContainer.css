@@ -21,6 +21,10 @@
     color: purple;
 }
 
+#AddLineButton {
+    background: none;
+}
+
 /* For mobile */
 @media (max-width: 700px) {
     .Title-Container {
