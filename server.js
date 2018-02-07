@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 if (port === process.env.PORT) {
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname, 'client/build')));
 }
 
 //To prevent errors from Cross Origin Resource Sharing, set 
@@ -32,6 +32,9 @@ if (port === process.env.PORT) {
 
 // Router Config
 app.use('/', dateRoute);
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 
 app.listen(port, function() {
