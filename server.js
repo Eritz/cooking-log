@@ -7,6 +7,9 @@ const dateRoute = require('./routes/dateRoute');
 
 // Connect to Mongoose Database
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
+mongoose.Promise = global.Promise;
+mongoose.connection.once('open', () => { console.log('MongoDB Connected'); });
+mongoose.connection.on('error', (err) => { console.log('MongoDB connection error: ', err); });
 const db = mongoose.connection;
 
 
