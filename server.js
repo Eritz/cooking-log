@@ -25,13 +25,13 @@ if (port === process.env.PORT) {
 
 //To prevent errors from Cross Origin Resource Sharing, set 
 //our headers to allow CORS with middleware like so for the local:
-// app.use(function(req, res, next) {
-//     res.setHeader("Access-Control-Allow-Origin", "https://cooking-log.herokuapp.com/");
-//     res.setHeader("Access-Control-Allow-Credentials", "true");
-//     res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE");
-//     res.setHeader("Access-Control-Allow-Headers", "Origin,Accept, X-Requested-With, Content-Type, Pragma");
-//     next();
-// });
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "https://cooking-log.herokuapp.com/");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Origin,Accept, X-Requested-With, Content-Type, Pragma");
+    next();
+});
 
 
 // Router Config
