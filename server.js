@@ -36,10 +36,6 @@ app.use(function(req, res, next) {
 
 // Router Config
 app.use('/', dateRoute);
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
-
 
 app.listen(port, function() {
     console.log("Running on port " + port);
