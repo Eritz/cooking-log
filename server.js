@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const dateRoute = require('./routes/dateRoute');
 
 // Connect to Mongoose Database
-mongoose.connect("process.env.MONGODB_URI" || "mongodb://localhost/");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
 const db = mongoose.connection;
 
 
