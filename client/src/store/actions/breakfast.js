@@ -27,7 +27,7 @@ export const getBreakfast = (dbInfo) => {
 export const getBreakfastDB = (date) => {
     const dateVar = date.format();
     return (dispatch) => {
-        axios.get("http://localhost:7000/dates/"+dateVar+"/breakfast")
+        axios.get("https://cooking-log.herokuapp.com/dates/"+dateVar+"/breakfast")
         .then(response => {
             dispatch(getBreakfast(response.data.breakfastChosen.meal))
         })

@@ -51,7 +51,7 @@ const reducer = (state=initialState, action) => {
             // Handle if there is a date set
             if (action.value !== null) {             
                 const dateToSave = action.value.format();
-                axios.post("http://localhost:7000/dates/"+dateToSave+"/snack", {meal: state.snackList})
+                axios.post("https://cooking-log.herokuapp.com/dates/"+dateToSave+"/snack", {meal: state.snackList})
                     .then(response => console.log(response.status)) 
                     .catch(error => console.log(error))
             }
