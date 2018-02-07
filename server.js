@@ -37,6 +37,7 @@ app.use(function(req, res, next) {
 // Router Config
 app.use('/', dateRoute);
 
+// Start the server on this port
 app.listen(port, function() {
     console.log("Running on port " + port);
 });
