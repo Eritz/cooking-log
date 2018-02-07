@@ -10,24 +10,24 @@ const db = mongoose.connection;
 
 
 // Express API Config
-const port = process.env.Port || 7000;
+const port = process.env.PORT || 7000;
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-if (port === process.env.Port) {
+if (port === process.env.PORT) {
     app.use(express.static('client/build'));
 }
 
 //To prevent errors from Cross Origin Resource Sharing, set 
 //our headers to allow CORS with middleware like so for the local:
-app.use(function(req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "https://cooking-log.herokuapp.com/");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Origin,Accept, X-Requested-With, Content-Type, Pragma");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.setHeader("Access-Control-Allow-Origin", "https://cooking-log.herokuapp.com/");
+//     res.setHeader("Access-Control-Allow-Credentials", "true");
+//     res.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE");
+//     res.setHeader("Access-Control-Allow-Headers", "Origin,Accept, X-Requested-With, Content-Type, Pragma");
+//     next();
+// });
 
 
 // Router Config
