@@ -14,10 +14,11 @@
     font-weight: bold;
     font-style: italic;
     font-size: medium;
-    /* background-color: rgb(99, 131, 235); */
-    background-color: rgb(20,20,20,0.2);
+    /* background-color: rgb(20,20,20,0.2); */
+    font-family: Helvetica, Arial, sans-serif;
     cursor: pointer;
     box-shadow: 1 2px 3px rgba(0,0,0,0.02);
+    border-radius: 5px;
 }
 
 

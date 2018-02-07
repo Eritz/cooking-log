@@ -15,7 +15,6 @@ class CookingLog extends Component {
     render() {
         return(
             <div className={"CookingLog-Container"}>
-                {/* <h1>Date: {this.props.currentDate}</h1>  */}
                 <div className="Date">
                     <DatePicker
                         dateFormat="MMM DD YYYY"
